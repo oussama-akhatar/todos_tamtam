@@ -1,0 +1,211 @@
+@import '../../Variables';
+
+
+.task_container {
+    overflow-y: scroll;
+}
+
+.hero {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(md) {
+        height: 750px;
+        width: 70%;
+        margin: 0;
+    }
+
+    .task {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 23px;
+        margin-left: 20px;
+        margin-right: 41.32px;
+
+        &_infos {
+            display: flex;
+            align-items: center;
+
+            input[type=checkbox] {
+                width: 26.429px;
+                cursor: pointer;
+                height: 25px;
+                flex-shrink: 0;
+                border-radius: 5px;
+                border: 1px solid $text-gray-500;
+                background: #FFF;
+                accent-color: $primary-color;
+                margin-right: 15px;
+            }
+
+            &_all {
+                &_title {
+                    font-family: Roboto;
+                    font-size: 22.79px;
+                    font-style: normal;
+                    font-weight: 600;
+                    color: $text-gray-600;
+                }
+
+                &_time {
+                    color: $text-gray-500;
+                    font-family: Roboto;
+                    font-size: 17.725px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+        }
+
+        &_delete_icon {
+            i {
+                font-size: 25px;
+                color: $text-gray-500;
+                cursor: pointer;
+
+                &:hover {
+                    color: $danger;
+                }
+            }
+        }
+    }
+
+    .add_task {
+        padding-top: 1rem;
+        margin: 12px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include breakpoint(md) {
+            margin: 12px 12px;
+            margin-top: 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: normal;
+            justify-content: space-between;
+        }
+
+        .input_save {
+            width: 100%;
+            height: 45px;
+            padding: 1rem;
+            border-radius: 7px;
+            background: #F3F3F3;
+            border: none;
+
+            @include breakpoint(md) {
+                width: 50%;
+                margin-right: 1rem;
+            }
+
+            &::placeholder {
+                font-size: 1rem;
+            }
+        }
+
+        &_container {
+            width: 100%;
+            margin-top: .5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+
+            @include breakpoint(md) {
+                width: 50%;
+                margin-top: 0;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+
+            }
+
+            .btn_save,
+            .btn_cancel {
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                color: #FFF;
+                text-align: center;
+                font-size: 20.258px;
+                font-weight: 700;
+                cursor: pointer;
+                padding: 10px 0;
+                margin-top: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+
+                @include breakpoint(md) {
+                    width: 100%;
+                    border: none;
+                    margin-top: 0px;
+                    border-radius: 5px;
+                    color: #FFF;
+                    text-align: center;
+                    font-size: 20.258px;
+                    font-weight: 700;
+                    padding: 0;
+                    margin-top: 0;
+                    cursor: pointer;
+                }
+            }
+
+            .btn_save {
+                background: #9333EA;
+
+                &:hover {
+                    background: #6a24ac;
+                }
+            }
+
+            .btn_cancel {
+                background: #6B7280;
+
+                &:hover {
+                    background: #3f434c;
+                }
+            }
+        }
+
+    }
+}
+
+
+.active {
+    color: $primary-color;
+}
+
+
+.alert_success {
+    position: absolute;
+    bottom: 8rem;
+    left: 8rem;
+    background-color: $primary-color;
+    color: white;
+    font-size: 1.4rem;
+    padding: 2rem 3rem;
+    border-radius: 2rem;
+    animation-name: alert;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+
+}
+
+@keyframes alert {
+    from {
+        bottom: -10rem;
+    }
+
+    to {
+        bottom: 8rem;
+    }
+}

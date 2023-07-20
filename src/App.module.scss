@@ -1,0 +1,17 @@
+@import './Variables';
+
+.maindiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1.5rem auto;
+    
+    @include breakpoint(md) {
+      display: flex;
+      flex-direction: row;
+      width: 1512px;
+      margin: 1.5rem auto;
+      padding: 0 108px;
+    }
+  }

@@ -1,0 +1,36 @@
+@import '../../Variables';
+
+
+.header {
+    display: flex;
+    width: 100%;
+    padding: 27px 36px;
+    margin: 0 auto;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 22.5px;
+    background: #FFF;
+    @include breakpoint(md) {
+        width: 1512px;
+      }
+
+    &_h1 {
+        color: $primary-color;
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        span {
+            color: $text-gray-500;
+        }
+    }
+
+    &_icon {
+        i {
+            color: $second-color;
+            font-size: 36px;
+        }
+    }
+}

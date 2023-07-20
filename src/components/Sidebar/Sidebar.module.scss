@@ -1,0 +1,58 @@
+@import '../../Variables';
+
+.sidebar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @include breakpoint(md) {
+        width: 25%;
+        height: 750px;
+    }
+
+    .list_buttons {
+        button {
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            display: flex;
+            width: 291.375px;
+            padding: 12.6px;
+            align-items: center;
+            gap: 15.75px;
+            font-size: x-large;
+            margin-bottom: 20px;
+            border-radius: 7.875px;
+            background: rgba(147, 51, 234, 0.06);
+            color: $text-gray-500;
+            cursor: pointer;
+
+            i {
+                font-size: 30px;
+
+                &.active {
+                    color: $primary-color;
+
+                }
+            }
+
+            &.active {
+                color: $primary-color;
+            }
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .cp {
+        margin: 12px 29px;
+    }
+}
+
+.active {
+    color: $primary-color;
+}
