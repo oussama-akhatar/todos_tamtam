@@ -10,7 +10,6 @@ const Hero = () => {
   const [tasks, setTasks] = useState([]);
   const [taskTitle, setTaskTitle] = useState('');
   const [isSubmited, setIsSubmited] = useState(false);
-  const [isAlertShow, setIsAlertShow] = useState(false);
 
   const today = new Date(), day_now = today.toLocaleDateString(), time_now = today.toLocaleTimeString()
 
@@ -20,17 +19,11 @@ const Hero = () => {
       .catch((err) => { console.error(err); })
   }, [isSubmited])
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsAlertShow(false)
-    }, 7000)
-  })
-
   const addTask = () => {
     axios.post('https://api-tamtam-todos.onrender.com/tasks', { title: taskTitle, is_done: false, created_at: day_now + " at " + time_now, is_deleted: false })
       .then((res) => {
         console.log(res + " Added Successfuly")
-        setIsSubmited(!isSubmited); setIsAlertShow(true)
+        setIsSubmited(!isSubmited);
         Swal.fire({
           title: 'Added!',
           text: 'Your task has been added.',
@@ -63,7 +56,7 @@ const Hero = () => {
           title: 'Deleted!',
           text: 'Your task has been deleted.',
           icon: 'success',
-          timer: 2000,
+          timer: 5000,
           timerProgressBar: true,
         })
         axios.patch('https://api-tamtam-todos.onrender.com/tasks/' + task.id, { is_deleted: true })
