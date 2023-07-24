@@ -7,6 +7,9 @@ import { ClipLoader } from "react-spinners"
 import Swal from 'sweetalert2'
 import Task from '../Task/Task';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Hero = () => {
   const api = ' http://localhost:9000';
 
@@ -58,12 +61,12 @@ const Hero = () => {
           setSpinner(true);
           Swal.fire({ title: 'Deleted!', text: 'Your task has been deleted.', icon: 'success', timer: 5000, timerProgressBar: true })
           axios.patch(api + '/tasks/' + task.id, { is_deleted: true })
-          .then((res) => {
-            console.log(res);
-            setTasks(tasks.filter(task_item => task_item.id !== task.id));
-            setSpinner(false)
-          })
-          .catch((err) => console.error(err))
+            .then((res) => {
+              console.log(res);
+              setTasks(tasks.filter(task_item => task_item.id !== task.id));
+              setSpinner(false)
+            })
+            .catch((err) => console.error(err))
         } else {
           Swal.fire({ title: 'Canceled!', text: 'Your task has not been deleted.', icon: 'error', timer: 5000, timerProgressBar: true })
         }
@@ -87,7 +90,31 @@ const Hero = () => {
 
         if (activeFilter === 'done' || activeFilter === 'todo') {
           setTasks(tasks.filter((task_item) => task_item.id !== task.id));
-        } 
+        }
+
+        if (res.data.is_done) {
+          toast.success('The task has been done !', {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.warn('The task hasn\'t been done !', {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
 
       })
       .catch((err) => console.error(err));
@@ -125,6 +152,7 @@ const Hero = () => {
           <div className={classes.add_task_container}>
             <button className={classes.btn_save} onClick={addTask} disabled={taskTitle == ''}> <span>Save</span></button>
             <button className={classes.btn_cancel} onClick={cancelTitleTask} disabled={taskTitle == ''}>Cancel</button>
+            <ToastContainer />
           </div>
         </div>
       </section>
