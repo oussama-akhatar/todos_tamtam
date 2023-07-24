@@ -24,16 +24,16 @@ const Hero = () => {
   useEffect(() => {
     if (activeFilter === 'done') {
       setSpinner(true)
-      console.log(spinner);
       axios.get(api + '/tasks?is_deleted=false&is_done=true').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
+      toast.success('All these tasks are done !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light"});
     } else if (activeFilter === 'todo') {
-      console.log(spinner);
       setSpinner(true)
       axios.get(api + '/tasks?is_deleted=false&is_done=false').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
+      toast.success('All these tasks are not done !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light"});
     } else {
-      console.log(spinner);
       setSpinner(true)
       axios.get(api + '/tasks?is_deleted=false').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
+      toast.success('All tasks is listed !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light",});
     }
   }, [activeFilter])
 
@@ -95,7 +95,7 @@ const Hero = () => {
         if (res.data.is_done) {
           toast.success('The task has been done !', {
             position: "bottom-left",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -106,7 +106,7 @@ const Hero = () => {
         } else {
           toast.warn('The task hasn\'t been done !', {
             position: "bottom-left",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
