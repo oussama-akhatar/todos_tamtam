@@ -15,3 +15,31 @@
       padding: 0 108px;
     }
   }
+
+  .conatiner_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .loader_hero_checkbox {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #9333EA;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    margin-right: 1rem;
+  }
+
+  @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

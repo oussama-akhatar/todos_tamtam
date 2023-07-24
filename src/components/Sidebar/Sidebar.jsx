@@ -1,15 +1,17 @@
-import { useState } from 'react'
 import classes from './Sidebar.module.scss'
+import { calendar } from '../svgs/calendar';
+import { calendarPlus } from '../svgs/calendarPlus';
+import { calendarCheck } from '../svgs/calendarCheck';
 
-const Sidebar = ({renderAll, renderAllDone, renderAllTodo}) => {
+const Sidebar = ({ setActiveTask, activeFilter }) => {
 
   return (
     <>
-    <section className={classes.sidebar}>
+      <section className={classes.sidebar}>
         <div className={classes.list_buttons}>
-          <button onClick={() => {renderAll()}}><i className='bi bi-calendar' ></i> All</button>
-          <button onClick={() => {renderAllTodo()}}><i className='bi bi-calendar-plus'></i> Todo</button>
-          <button onClick={() => {renderAllDone()}}><i className='bi bi-calendar-check'></i> Done</button>
+          <button onClick={() => { setActiveTask('all') }} className={activeFilter === 'all' ? classes.activeButton : null}>{calendar} All</button>
+          <button onClick={() => { setActiveTask('todo') }} className={activeFilter === 'todo' ? classes.activeButton : null}>{calendarPlus} Todo</button>
+          <button onClick={() => { setActiveTask('done') }} className={activeFilter === 'done' ? classes.activeButton : null}>{calendarCheck} Done</button>
         </div>
         <div className={classes.cp}>
           © Tamtam International - Stage 2023

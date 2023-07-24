@@ -1,0 +1,82 @@
+@import '../../Variables';
+
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 23px;
+    margin-left: 20px;
+    margin-right: 41.32px;
+
+    &_infos {
+        display: flex;
+        align-items: center;
+
+        input[type=checkbox] {
+            width: 26.429px;
+            cursor: pointer;
+            height: 25px;
+            flex-shrink: 0;
+            border-radius: 5px;
+            border: 1px solid $text-gray-500;
+            background: #FFF;
+            accent-color: $primary-color;
+            margin-right: 15px;
+        }
+
+        &_all {
+            &_title {
+                font-family: Roboto;
+                font-size: 22.79px;
+                font-style: normal;
+                font-weight: 600;
+                color: $text-gray-600;
+            }
+
+            &_time {
+                color: $text-gray-500;
+                font-family: Roboto;
+                font-size: 17.725px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+    }
+
+    &_delete_icon {
+        svg {
+            font-size: 25px;
+            color: $text-gray-500;
+            cursor: pointer;
+
+            &:hover {
+                color: $danger;
+            }
+        }
+    }
+}
+
+.loader_hero_checkbox {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #9333EA;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    margin-right: 1rem;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.conatiner_spinner {
+    margin-right: .7rem;
+}
