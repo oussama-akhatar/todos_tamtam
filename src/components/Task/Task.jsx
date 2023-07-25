@@ -1,5 +1,5 @@
 import styles from './Task.module.scss'
-import { trash } from '../svgs/trash'
+import { trash } from '../../svgs/trash'
 import { ClipLoader } from 'react-spinners'
 
 const Task = ({ task_id, task_title, task_is_done, task_created_at, deleteTask, handleCheckTask, task }) => {

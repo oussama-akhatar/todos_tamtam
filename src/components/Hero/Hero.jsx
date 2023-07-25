@@ -11,7 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Hero = () => {
-  const api = ' http://localhost:9000';
+  // const api = 'http://localhost:9000';
+  const api = 'https://api-tamtam-todos.onrender.com';
 
   const [tasks, setTasks] = useState([]);
   const [activeFilter, setActiveFilter] = useState('all');
@@ -25,15 +26,15 @@ const Hero = () => {
     if (activeFilter === 'done') {
       setSpinner(true)
       axios.get(api + '/tasks?is_deleted=false&is_done=true').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
-      toast.success('All these tasks are done !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light"});
+      toast.success('All these tasks are done !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light" });
     } else if (activeFilter === 'todo') {
       setSpinner(true)
       axios.get(api + '/tasks?is_deleted=false&is_done=false').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
-      toast.success('All these tasks are not done !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light"});
+      toast.success('All these tasks are not done !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light" });
     } else {
       setSpinner(true)
       axios.get(api + '/tasks?is_deleted=false').then((res) => { setTasks(res.data); setSpinner(false) }).catch((err) => console.error(err))
-      toast.success('All tasks is listed !', {position: "bottom-left",autoClose: 1500,hideProgressBar: true,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined,theme: "light",});
+      toast.success('All tasks is listed !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
     }
   }, [activeFilter])
 
@@ -48,7 +49,7 @@ const Hero = () => {
             setTasks([...tasks, res.data])
           }
           setSpinner(false)
-          Swal.fire({ title: 'Added!', text: 'Your task has been added.', icon: 'success', timer: 2000, timerProgressBar: true })
+          toast.success('Your task has been added. !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
           setTaskTitle('')
         }).catch((error) => { console.error(error) })
     }
@@ -59,16 +60,15 @@ const Hero = () => {
       .then((result) => {
         if (result.isConfirmed) {
           setSpinner(true);
-          Swal.fire({ title: 'Deleted!', text: 'Your task has been deleted.', icon: 'success', timer: 5000, timerProgressBar: true })
           axios.patch(api + '/tasks/' + task.id, { is_deleted: true })
             .then((res) => {
-              console.log(res);
               setTasks(tasks.filter(task_item => task_item.id !== task.id));
               setSpinner(false)
+              toast.success('Your task has been deleted !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
             })
             .catch((err) => console.error(err))
-        } else {
-          Swal.fire({ title: 'Canceled!', text: 'Your task has not been deleted.', icon: 'error', timer: 5000, timerProgressBar: true })
+          } else {
+          toast.error('Your task has not been deleted !', { position: "bottom-left", autoClose: 1500, hideProgressBar: true, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: "light", });
         }
       })
   }

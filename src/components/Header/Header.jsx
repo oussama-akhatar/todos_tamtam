@@ -1,5 +1,5 @@
 import classes from './Header.module.scss'
-import { person } from '../svgs/person'
+import { person } from '../../svgs/person'
 
 const Header = () => {
   return (

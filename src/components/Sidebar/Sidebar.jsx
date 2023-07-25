@@ -1,7 +1,7 @@
 import classes from './Sidebar.module.scss'
-import { calendar } from '../svgs/calendar';
-import { calendarPlus } from '../svgs/calendarPlus';
-import { calendarCheck } from '../svgs/calendarCheck';
+import { calendar } from '../../svgs/calendar';
+import { calendarPlus } from '../../svgs/calendarPlus';
+import { calendarCheck } from '../../svgs/calendarCheck';
 
 const Sidebar = ({ setActiveTask, activeFilter }) => {
 
