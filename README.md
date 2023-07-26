@@ -79,6 +79,7 @@ This project is licensed under AKHATAR Oussama License - see the [![License](htt
 ## Contact
 
 Author: **AKHATAR Oussama**
+
 Email: **oussamaakhatar2@gmail.com**
 
 For more information about the project or any questions, you can also open an issue in this repository.
