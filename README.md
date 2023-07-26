@@ -74,7 +74,7 @@ Contributions to this project are welcome! If you find any issues or have sugges
 
 ## License
 
-This project is licensed under AKHATAR Oussama License - see the LICENSE file for details.
+This project is licensed under AKHATAR Oussama License - see the [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) file for details.
 
 ## Contact
 
