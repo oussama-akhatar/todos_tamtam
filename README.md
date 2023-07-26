@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+![Todo Tamtam Logo](/logo.png)
+
 ## Description
 
 Welcome to Todos TamTam! This repository contains the source code for a simple web application for managing todos and tasks. It is designed to help users keep track of their tasks and stay organized. The project is built using React.js and Sass.
